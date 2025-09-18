@@ -1,0 +1,22 @@
+# Folders to exclude
+videos/
+transcripts/
+
+# files to exclude
+*.json
+*.srt
+*.tsv
+*.vtt
+*.pkl
+*.mp4
+*.h5
+*.hdf5
+__pycache__/
+.ipynb_checkpoints/
+.DS_Store
+
+# Environment files
+.env
+.venv/
+env/
+venv/
