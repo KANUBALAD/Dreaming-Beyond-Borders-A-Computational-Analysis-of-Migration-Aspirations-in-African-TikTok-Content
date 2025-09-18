@@ -186,7 +186,7 @@ async def scrape_tiktok():
 
                 print(f"Processing {len(video_urls)} unique videos...")
 
-                for video_count, video_url in enumerate(list(video_urls)[:20], start=1):
+                for video_count, video_url in enumerate(list(video_urls)[:-1], start=1):
                     try:
                         print(f"   📹 Processing video {video_count}: {video_url}")
                         await page.goto(video_url, timeout=30000, wait_until="domcontentloaded")
