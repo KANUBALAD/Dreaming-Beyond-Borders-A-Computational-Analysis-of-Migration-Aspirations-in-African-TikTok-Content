@@ -5,7 +5,9 @@ import asyncio
 import re
 import os
 
-hashtags = ["ghanauknurses", "GhanaInUK", "GhanaInUSA"]
+# hashtags = ["ghanauknurses", "GhanaInUK", "GhanaInUSA"]
+hashtags = ["ghanauknurses"]
+# hashtags = ["GhanaToUKNursing"]
 
 async def scrape_tiktok():
     async with async_playwright() as p:
@@ -52,7 +54,7 @@ async def scrape_tiktok():
 
                 # Extract unique video URLs
                 video_urls = set()
-                for link in video_links[:30]:  # Limit to first 30
+                for link in video_links[:150]:  # Limit to first 30
                     href = await link.get_attribute("href")
                     if href and href not in video_urls:
                         if href.startswith("http"):
@@ -63,7 +65,7 @@ async def scrape_tiktok():
                 print(f"Processing {len(video_urls)} unique videos...")
                 
                 video_count = 0
-                for video_url in list(video_urls)[:10]:  # Process max 10 videos per hashtag for testing
+                for video_url in list(video_urls)[:100]:  # Process max 10 videos per hashtag for testing
                     try:
                         print(f"   📹 Processing video {video_count + 1}: {video_url}")
                         
